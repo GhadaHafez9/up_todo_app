@@ -100,7 +100,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         height: 114.h,
                       ),
                       CustomButton(
-                          buttonText: 'Sign up',
+                          buttonText: 'Sign in',
                           onTap: () {
                             final username =
                                 sl<AddedTaskData>().nameController.text;

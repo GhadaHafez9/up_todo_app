@@ -5,10 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:up_todo/Feature/Auth/data/models/user.dart';
 import 'package:up_todo/Feature/Auth/presentation/controllers/image_notifier.dart';
-import 'package:up_todo/Feature/Auth/presentation/screens/auth_screen.dart';
 import 'package:up_todo/core/cache_service/cache_service.dart';
 
-import '../../../Auth/presentation/widgets/custom_button.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String? username;
@@ -157,17 +155,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 const Spacer(),
-                CustomButton(
-                    buttonText: 'LogOut',
-                    onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AuthScreen(),
-                        ),
-                            (Route<dynamic> route) => true,
-                      );
-                    }),
+                // CustomButton(
+                //     buttonText: 'LogOut',
+                //     onTap: () {
+                //       Navigator.pushAndRemoveUntil(
+                //         context,
+                //         MaterialPageRoute(
+                //           builder: (context) => const AuthScreen(),
+                //         ),
+                //             (Route<dynamic> route) => true,
+                //       );
+                //     }),
               ],
             ),
 

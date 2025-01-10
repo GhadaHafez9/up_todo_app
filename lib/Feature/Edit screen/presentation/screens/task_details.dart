@@ -58,6 +58,7 @@ class _TaskDetailsState extends State<TaskDetails> {
               body: SafeArea(
                 top: true,
                 left: true,
+                bottom: true,
                 child: RefreshIndicator(
                   onRefresh: () async {
                     sl<TaskListBloc>().add(RefreshTasks());
@@ -68,7 +69,7 @@ class _TaskDetailsState extends State<TaskDetails> {
                       children: [
                         Padding(
                           padding:
-                          const EdgeInsets.only(top: 16, left: 14, right: 14),
+                          const EdgeInsets.only(top: 16, left: 14, right: 14 , bottom: 10),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -353,7 +354,8 @@ class _TaskDetailsState extends State<TaskDetails> {
                                   color: Colors.white,
                                 )),
                           ),
-                        )
+                        ),
+                         SizedBox(height: 20.h),
                       ],
                     ),
                   ),
