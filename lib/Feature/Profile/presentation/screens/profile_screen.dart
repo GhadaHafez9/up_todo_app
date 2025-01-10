@@ -160,11 +160,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 CustomButton(
                     buttonText: 'LogOut',
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const AuthScreen(),
                         ),
+                            (Route<dynamic> route) => true,
                       );
                     }),
               ],

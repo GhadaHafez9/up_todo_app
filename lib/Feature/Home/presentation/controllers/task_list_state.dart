@@ -1,6 +1,6 @@
 part of 'task_list_bloc.dart';
 
-enum TaskStatusList { initial, loading, success, failure ,deleted }
+enum TaskStatusList { initial, loading, success, failure, deleted }
 
 class TaskListState extends Equatable {
   final String id;

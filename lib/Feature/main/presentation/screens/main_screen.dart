@@ -9,7 +9,9 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: PresBottomnav(),
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+          child: PresBottomnav()),
     );
   }
 }

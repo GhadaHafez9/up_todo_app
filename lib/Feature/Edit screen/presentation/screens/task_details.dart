@@ -7,6 +7,7 @@ import 'package:up_todo/Feature/Edit%20screen/presentation/widgets/confirm_delet
 import 'package:up_todo/Feature/Edit%20screen/presentation/widgets/title_descrioption_edit.dart';
 import 'package:up_todo/Feature/Home/presentation/controllers/task_list_bloc.dart';
 import 'package:up_todo/Feature/main/data/models/task_model/task_model.dart';
+import 'package:up_todo/Feature/main/presentation/screens/main_screen.dart';
 import 'package:up_todo/core/components/resources/service_locator.dart';
 
 import '../../../Home/presentation/widgets/time_fun.dart';
@@ -336,7 +337,12 @@ class _TaskDetailsState extends State<TaskDetails> {
                               if (Navigator.canPop(context)) {
                                 Navigator.pop(context, widget.task);
                               } else {
-                                print('No route to pop');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) => const MainScreen(),
+                                  ),
+                                );
                               }
                             },
                             backgroundColor: const Color(0xff8687E7),

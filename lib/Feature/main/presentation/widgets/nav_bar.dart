@@ -21,6 +21,7 @@ class _PresBottomnavState extends State<PresBottomnav> {
     showModalBottomSheet(
       backgroundColor: const Color(0xff363636),
       context: context,
+      isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
@@ -33,81 +34,83 @@ class _PresBottomnavState extends State<PresBottomnav> {
     PersistentTabController _controller =
         PersistentTabController(initialIndex: 0);
 
-    return PersistentTabView(
-      context,
-      controller: _controller,
-      screens: const [
-        HomeScreen(),
-        SizedBox(),
-        SizedBox(),
-        SizedBox(),
-        ProfileScreen(),
-      ],
-      items: [
-        PersistentBottomNavBarItem(
-          icon: const Icon(CupertinoIcons.home),
-          title: "Index",
-          textStyle: TextStyle(
-            fontSize: 12.sp,
-            height: 4.h,
+    return SafeArea(
+      child: PersistentTabView(
+        context,
+        controller: _controller,
+        screens: const [
+          HomeScreen(),
+          SizedBox(),
+          SizedBox(),
+          SizedBox(),
+          ProfileScreen(),
+        ],
+        items: [
+          PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.home),
+            title: "Index",
+            textStyle: TextStyle(
+              fontSize: 12.sp,
+              height: 1.5.h,
+            ),
+            activeColorPrimary: Colors.white,
+            inactiveColorPrimary: Colors.white.withOpacity(0.60),
           ),
-          activeColorPrimary: Colors.white,
-          inactiveColorPrimary: Colors.white.withOpacity(0.60),
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(CupertinoIcons.calendar),
-          title: "Calendar",
-          textStyle: TextStyle(
-            fontSize: 12.sp,
-            height: 4.h,
+          PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.calendar),
+            title: "Calendar",
+            textStyle: TextStyle(
+              fontSize: 12.sp,
+              height: 1.5.h,
+            ),
+            activeColorPrimary: Colors.white,
+            inactiveColorPrimary: Colors.white.withOpacity(0.60),
           ),
-          activeColorPrimary: Colors.white,
-          inactiveColorPrimary: Colors.white.withOpacity(0.60),
-        ),
-        PersistentBottomNavBarItem(
-          icon: Icon(
-            CupertinoIcons.add,
-            color: Colors.white,
-            size: 28.sp,
+          PersistentBottomNavBarItem(
+            icon: Icon(
+              CupertinoIcons.add,
+              color: Colors.white,
+              size: 28.sp,
+            ),
+            activeColorPrimary: const Color(0xff8687E7),
+            inactiveColorPrimary: const Color(0xff8687E7),
+            onPressed: (context) {
+              _showBottomSheet();
+            },
           ),
-          activeColorPrimary: const Color(0xff8687E7),
-          inactiveColorPrimary: const Color(0xff8687E7),
-          onPressed: (context) {
-            _showBottomSheet();
-          },
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(CupertinoIcons.timer),
-          title: "Focus",
-          textStyle: TextStyle(
-            fontSize: 12.sp,
-            height: 4.h,
+          PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.timer),
+            title: "Focus",
+            textStyle: TextStyle(
+              fontSize: 12.sp,
+              height: 1.5.h,
+            ),
+            activeColorPrimary: Colors.white,
+            inactiveColorPrimary: Colors.white.withOpacity(0.60),
           ),
-          activeColorPrimary: Colors.white,
-          inactiveColorPrimary: Colors.white.withOpacity(0.60),
-        ),
-        PersistentBottomNavBarItem(
-          icon: const Icon(CupertinoIcons.profile_circled),
-          title: "Profile",
-          textStyle: TextStyle(
-            fontSize: 12.sp,
-            height: 4.h,
+          PersistentBottomNavBarItem(
+            icon: const Icon(CupertinoIcons.profile_circled),
+            title: "Profile",
+            textStyle: TextStyle(
+              fontSize: 12.sp,
+              height: 1.5.h,
+            ),
+            activeColorPrimary: Colors.white,
+            inactiveColorPrimary: Colors.white.withOpacity(0.60),
           ),
-          activeColorPrimary: Colors.white,
-          inactiveColorPrimary: Colors.white.withOpacity(0.60),
-        ),
-      ],
-      handleAndroidBackButtonPress: true,
-      resizeToAvoidBottomInset: true,
-      stateManagement: true,
-      hideNavigationBarWhenKeyboardAppears: true,
-      backgroundColor: const Color(0xff363636),
-      navBarHeight: 90.0,
-      isVisible: true,
-      padding: EdgeInsets.only(top: 8.0),
-      animationSettings: const NavBarAnimationSettings(),
-      confineToSafeArea: true,
-      navBarStyle: NavBarStyle.style15,
+        ],
+        handleAndroidBackButtonPress: true,
+        resizeToAvoidBottomInset: true,
+        stateManagement: true,
+        hideNavigationBarWhenKeyboardAppears: true,
+        backgroundColor: const Color(0xff363636),
+        navBarHeight: 80.0,
+        isVisible: true,
+        padding: const EdgeInsets.only(top: 8.0),
+        animationSettings: const NavBarAnimationSettings(),
+        confineToSafeArea: true,
+        navBarStyle: NavBarStyle.style15,
+      ),
     );
   }
 }

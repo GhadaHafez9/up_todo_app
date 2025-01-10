@@ -98,7 +98,7 @@ class AddTaskBloc extends Bloc<AddTaskEvent, AddTaskState> {
     emit(state.copyWith(status: TaskStatus.loading));
     try {
       await Future.delayed(const Duration(seconds: 2));
-      emit(state.copyWith(status: TaskStatus.success));
+      emit(state.copyWith(status: TaskStatus.success , tasks: tasks2));
     } catch (error) {
       print('Error: $error');
       emit(state.copyWith(status: TaskStatus.failure));

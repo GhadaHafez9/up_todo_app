@@ -47,49 +47,55 @@ class _HomeScreenState extends State<HomeScreen> {
           child: BlocBuilder<TaskListBloc, TaskListState>(
               builder: (context, state) {
             return Scaffold(
+                resizeToAvoidBottomInset: true,
                 appBar: AppBar(
-                  title: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.filter_list_outlined,
-                            size: 33.sp,
+                  title: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              Icons.filter_list_outlined,
+                              size: 33.sp,
+                            ),
+                            onPressed: () {},
                           ),
-                          onPressed: () {},
-                        ),
-                        Text(
-                          'Index',
-                          style: TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: 'Lato',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white),
-                        ),
-                        ValueListenableBuilder<File?>(
-                            valueListenable: ProfileImageNotifier.imageNotifier,
-                            builder: (context, displayImage, child) {
-                              return CircleAvatar(
-                                backgroundImage: displayImage != null
-                                    ? FileImage(displayImage)
-                                    : const AssetImage('assets/images/account.jpg')
-                                as ImageProvider,
-                              );
-                            }),
-                      ],
+                          Text(
+                            'Index',
+                            style: TextStyle(
+                                fontSize: 20.sp,
+                                fontFamily: 'Lato',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white),
+                          ),
+                          ValueListenableBuilder<File?>(
+                              valueListenable: ProfileImageNotifier.imageNotifier,
+                              builder: (context, displayImage, child) {
+                                return CircleAvatar(
+                                  backgroundImage: displayImage != null
+                                      ? FileImage(displayImage)
+                                      : const AssetImage('assets/images/account.jpg')
+                                  as ImageProvider,
+                                );
+                              }),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                body: Column(
-                  children: [
-                    SizedBox(height: 16.h),
-                    Expanded(
-                        child: state.todos?.isEmpty ?? true
-                            ? const Emptystatus()
-                            : const notEmpty_Screen()),
-                  ],
+                body: SafeArea(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 16.h),
+                      Expanded(
+                          child: state.todos?.isEmpty ?? true
+                              ? const Emptystatus()
+                              : const notEmpty_Screen()),
+                      SizedBox(height: 16.h),
+                    ],
+                  ),
                 ));
           })),
     );

@@ -58,14 +58,18 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         child: BlocBuilder<AddTaskBloc, AddTaskState>(
           builder: (context, state) {
             return Container(
-              height: 230.h,
-              padding: const EdgeInsets.all(8),
+              padding:  EdgeInsets.only(
+                top: 8,
+                left: 8,
+                right: 8,
+                bottom: MediaQuery.of(context).viewInsets.bottom+8,
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(bottom: 8),
                       child: Text(
                         'Add Task',
                         style: TextStyle(
